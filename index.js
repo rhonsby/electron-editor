@@ -1,10 +1,12 @@
 const { app, BrowserWindow } = require('electron');
+const path = require('path');
 
 
 let mainWindow;
 
 app.on('ready', () => {
-    mainWindow = new BrowserWindow({});
-    mainWindow.loadURL('https://google.com');
-});
+    const indexPath = path.join(__dirname, 'index.html');
 
+    mainWindow = new BrowserWindow({});
+    mainWindow.loadURL(`file:///${indexPath}`);
+});
